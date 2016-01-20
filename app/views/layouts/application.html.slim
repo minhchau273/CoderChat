@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    title CoderChat
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    == stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    == javascript_include_tag 'application', 'data-turbolinks-track' => true
+    == csrf_meta_tags
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+  body
+    /! SIDEBAR
+    .sidebar-menu.hidden-xs.hidden-sm
+      .top-section
+        .profile-image
+          img alt="Cheetah" src="http://loremflickr.com/240/240/profile"
+        h3.profile-title Cheetah
+        p.profile-description CoderSchool
+      /! .main-navigation
+      .main-navigation
+        ul.navigation
+          li
+            a href="#"
+              i.fa.fa-globe
+              | Social
+          li
+            a href="#"
+              i.fa.fa-pencil
+              | New Message
+          li
+            a href="#"
+              i.fa.fa-comments-o
+              | Inbox
+          li
+            a href="#"
+              i.fa.fa-sign-out
+              | Sign Out
+    /! MAIN CONTENT
+    .main-content
+      .fluid-container
+        .content-wrapper
+          #about.page-section
+            == yield
