@@ -39,4 +39,5 @@ html
       .fluid-container
         .content-wrapper
           #about.page-section
+            = render partial: 'layouts/flash_messages', flash: flash
             == yield
