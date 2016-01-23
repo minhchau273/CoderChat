@@ -6,7 +6,12 @@
         .profile_card
           .header style=("background: url(#{user.image_url})")
           .profile
-            .avatar_image
+            - friendship = current_user.check_friendship_with(user.id)
+            - icon_url = case friendship
+            -            when "friend" then TICK_ICON_URL
+            -            when "block" then BLOCK_ICON_URL
+            -            else ATTENTION_ICON_URL
+            .avatar_image style=("background: url(#{icon_url}) no-repeat top right")
             .inner_content
               h2#name.name = user.name
               span#desc
@@ -17,8 +22,12 @@
                     a.button href="http://lucasbonomi.com" title="Add friend"
                       i.fa.fa-pencil
                   li
-                    a#twitter.button href="/add_friend?new_friend_id=#{user.id}" title="Add friend"
-                      i.fa.fa-user-plus
+                    - if friendship == "friend"
+                      a#twitter.button href="/unfriend?friend_id=#{user.id}" title="Unfriend"
+                        i.fa.fa-user-times
+                    - else
+                      a#twitter.button href="/add_friend?new_friend_id=#{user.id}" title="Add friend"
+                        i.fa.fa-user-plus
                   li
                     a#dribbble.button href="http://dribbble.com/LukyVj" 
                       i.fa.fa-check

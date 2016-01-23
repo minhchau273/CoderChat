@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'add_friend', to: 'friendship#create'
+  get 'unfriend', to: 'friendship#destroy'
   resources :friendships
 
   get 'society', to: 'users#index'
