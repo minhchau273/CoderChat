@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'block_user', to: 'block#create'
+  get 'unblock', to: 'block#destroy'
+
   get 'add_friend', to: 'friendship#create'
   get 'unfriend', to: 'friendship#destroy'
-  resources :friendships
 
   get 'society', to: 'users#index'
 

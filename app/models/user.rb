@@ -12,13 +12,12 @@ class User < ActiveRecord::Base
     "#{IMAGE_BASE_URL}#{name.partition(" ").first}"
   end
 
-  def check_friendship_with(user_id)
-    # byebug
+  def is_friend_with(user_id)
     friendship = Friendship.find_by(user1_id: id, user2_id: user_id) || Friendship.find_by(user2_id: id, user1_id: user_id)
-    if friendship
-      "friend"
-    else
-      "unrelated"
-    end
+    friendship ? true : false
+  end
+
+  def has_blocked_user(user_id)
+    Block.find_by(user_id: id, blocked_user_id: user_id) ? true : false
   end
 end
