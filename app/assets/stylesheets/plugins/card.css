@@ -1,0 +1,193 @@
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+@font-face {
+  font-family: 'Museo';
+  src: url("http://rocket-design.fr/fonts/museo/museo.eot?") format("eot"), url("http://rocket-design.fr/fonts/museo/museo.woff") format("woff"), url("http://rocket-design.fr/fonts/museo/museo.ttf") format("truetype");
+}
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: .02em;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #7F8A96;
+  /*background: #333 url(http://sandbox.lucasbonomi.com/img/blur/Retina-Size/10.jpg) no-repeat center center;*/
+  background-size: cover;
+}
+
+.profile_card {
+  height: 415px;
+  width: 230px;
+  /*margin: 15vh auto;*/
+  border-radius: 1px;
+  box-shadow: 0 0 0 0.22em #ADB3BA;
+}
+.profile_card .profile {
+  height: 185px;
+  width: 100%;
+  float: left;
+}
+.profile_card .header {
+  background-size: 126% 100%;
+  transition: background-size .3s ease;
+  height: 230px;
+  width: 100%;
+  float: left;
+}
+.profile_card .header:hover {
+  transition: background .3s ease;
+  background-size: 500% 200%;
+}
+.profile_card .header:hover a {
+  color: #fff;
+}
+.profile_card .header:hover a:nth-child(1) {
+  transition: color .1s ease;
+}
+.profile_card .header:hover a:nth-child(1):hover {
+  color: #2ecc71;
+  transition: color .1s ease !important;
+}
+.profile_card .header:hover a:nth-child(2) {
+  transition: color .1s ease .1s;
+}
+.profile_card .header:hover a:nth-child(2):hover {
+  color: #ecf0f1;
+  transition: color .1s ease !important;
+}
+.profile_card .header:hover a:nth-child(3) {
+  transition: color .1s ease .2s;
+}
+.profile_card .header:hover a:nth-child(3):hover {
+  color: #f1c40f;
+  transition: color .1s ease !important;
+}
+.profile_card .header:hover a:nth-child(4) {
+  transition: color .1s ease .3s;
+}
+.profile_card .header:hover a:nth-child(4):hover {
+  color: #FF667A;
+  transition: color .1s ease !important;
+}
+.profile_card .header:hover .inner_head {
+  background: rgba(0, 0, 0, 0.5);
+}
+.profile_card .profile {
+  background: #455669;
+  font-family: "Museo",serif;
+  box-shadow: 0 -0.2em 0 0 rgba(255, 255, 255, 0.5);
+}
+.profile_card .profile .avatar_image {
+  width: 50px;
+  height: 50px;
+  background: url(http://s12.postimg.org/bvjschbsd/tick.png) no-repeat top right;
+  background-size: 100%;
+  border-radius: 100%;
+  margin: -1.8em auto;
+  box-shadow: 0 0 0 0.2em rgba(255, 255, 255, 0.85), 0 0 0 0.3em rgba(0, 0, 0, 0.25);
+  position: relative;
+  z-index: 3;
+}
+.profile_card .profile .inner_content {
+  width: 92%;
+  height: 170px;
+  float: left;
+  margin: 0.5em 4%;
+  background: #f9f9f9;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 1px;
+}
+.profile_card .profile .inner_content:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 16px;
+  background: #f9f9f9;
+  margin-top: -1.3em;
+  margin-left: -1px;
+  /*border: 1px solid rgba(0, 0, 0, 0.1);*/
+  box-shadow: inset 0 0em 0 0 #f4f4f4, inset 0 -0.2em 0 0 rgba(0, 0, 0, 0.1), inset 0 -0.35em 0 0 #f4f4f4, inset 0 -0.4em 0 0 rgba(0, 0, 0, 0.1);
+}
+.profile_card .profile .inner_content .name {
+  color: #959595;
+  font-size: .9em;
+  text-align: center;
+  padding: .3em 0 .2em;
+  line-height: 2;
+  border-top: 0.1em solid rgba(0, 0, 0, 0.2);
+  border-bottom: 0.1em solid rgba(0, 0, 0, 0.2);
+  font-family: "helvetica neue";
+  font-weight: 400;
+  margin: 2.8em auto;
+  width: 75%;
+  margin-bottom: 1em;
+}
+.profile_card .profile .inner_content .description {
+  font-size: .75em;
+  text-align: center;
+  line-height: .5;
+  font-weight: 100;
+  padding: .2em .5em -.1em;
+  color: #ababab;
+  text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.8);
+}
+.profile_card .profile .inner_content ul {
+  list-style: none;
+  padding: 0;
+  width: 90%;
+  height: 3.5em;
+  display: block;
+  margin: 1em auto;
+}
+.profile_card .profile .inner_content ul li {
+  display: block;
+  float: left;
+  padding: 0;
+  margin: .75em 0 0 1.25em;
+  text-align: center;
+}
+.profile_card .profile .inner_content ul li:hover a {
+  color: #7f8c8d;
+}
+.profile_card .profile .inner_content ul li a {
+  color: #95a5a6;
+  text-decoration: none;
+  text-align: center;
+}
+.profile_card .profile .inner_content ul li a span {
+  line-height: 1;
+}
+
+/* Buttons */
+.button {
+  padding: 10px 11px;
+  font-size: 1.1em;
+  width: 30px;
+  height: 28px;
+  line-height: 1;
+  position: relative;
+  background: linear-gradient(top, #fefefe, #f2f2f2);
+  box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.1), inset 0 0.2em 0.2em rgba(255, 255, 255, 0.2), 0 0.1em 0.1em rgba(0, 0, 0, 0.1), 0 0.2em 0.1em rgba(0, 0, 0, 0.05);
+  border-radius: 100%;
+}
+.button:hover {
+  box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.15), inset 0 0.2em 0.2em rgba(255, 255, 255, 0.2), 0 0.1em 0.1em rgba(0, 0, 0, 0.15), 0 0.2em 0.1em rgba(0, 0, 0, 0.05);
+}
+.button:active {
+  top: .05em;
+  box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.1), inset 0 0.2em 0.2em rgba(255, 255, 255, 0.2), 0 0.1em 0em rgba(0, 0, 0, 0.1), 0 0.1em 0.1em rgba(0, 0, 0, 0.05);
+}

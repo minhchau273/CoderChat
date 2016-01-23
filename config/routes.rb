@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :friendships
+  get 'society', to: 'users#index'
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
