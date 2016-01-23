@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-
+    @all_users = User.where("id != #{current_user.id}")
   end
 
   def new

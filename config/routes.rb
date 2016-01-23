@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'add_friend', to: 'friendship#create'
   resources :friendships
+
   get 'society', to: 'users#index'
 
   get 'login', to: 'sessions#new'

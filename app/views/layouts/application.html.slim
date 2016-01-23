@@ -12,7 +12,7 @@ html
     .sidebar-menu.hidden-xs.hidden-sm
       .top-section
         .profile-image
-          img alt="Cheetah" src="http://loremflickr.com/240/240/profile"
+          img alt="Cheetah" src="#{current_user.image_url}"
         h3.profile-title = current_user.name
         p.profile-description = current_user.email
       /! .main-navigation
@@ -23,7 +23,7 @@ html
               i.fa.fa-comments-o
               | Inbox
           li
-            a href="#"
+            a href="/society"
               i.fa.fa-globe
               | Society
           li
