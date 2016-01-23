@@ -7,7 +7,7 @@
           .header style=("background: url(#{user.image_url})")
           .profile
             - icon_url = card_icon_url_based_on_2_users(current_user, user)
-            .avatar_image style=("background: url(#{icon_url}) no-repeat top right")
+            .avatar_image style=("background: url(#{icon_url}) no-repeat top right; background-size: 100%")
             .inner_content
               h2#name.name = user.name
               span#desc
