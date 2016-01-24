@@ -12,3 +12,4 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( users.scss )
 Rails.application.config.assets.precompile += %w( society.scss )
+Rails.application.config.assets.precompile += %w( messages.scss )
