@@ -235,6 +235,12 @@ hr {
 /*---------------------------------------------------------
  3. Header
 -------------------------------------------------------- */
+.app-title {
+  color: wheat;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
 .sidebar-menu {
   float: left;
   width: 23%;
@@ -529,4 +535,12 @@ h3.profile-title {
 }
 #footer p.copyright-text a:hover {
   color: #6cc0f7;
+}
+
+/*---------------------------------------------------------
+ 6. Flash Message
+-------------------------------------------------------- */
+.flash-msg {
+  margin-top: 15px;
+  margin-left: 28px;
 }

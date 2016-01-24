@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def index
-    @all_users = User.where("id != #{current_user.id}")
+    @type = params[:type] || 'all'
+    @all_users = case @type
+                 when 'friend' then current_user.friends
+                 when 'block' then current_user.blocked_users
+                 else User.where("id != #{current_user.id}")
+                 end
   end
 
   def new

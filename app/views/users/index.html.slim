@@ -1,34 +1,54 @@
 == stylesheet_link_tag 'society', media: 'all', 'data-turbolinks-track' => true
-- @all_users.in_groups_of(3) do |group|
-  .row
-    - group.compact.each do |user|
-      .col-sm-4
-        .profile_card
-          .header style=("background: url(#{user.image_url})")
-          .profile
-            - icon_url = card_icon_url_based_on_2_users(current_user, user)
-            .avatar_image style=("background: url(#{icon_url}) no-repeat top right; background-size: 100%")
-            .inner_content
-              h2#name.name = user.name
-              span#desc
-              p#desc_one.description = user.email
-              .social_links
-                ul
-                  li
-                    a.button href="http://lucasbonomi.com" title="Add friend"
-                      i.fa.fa-pencil
-                  li
-                    - if current_user.is_friend_with(user)
-                      a#twitter.button href="/unfriend?friend_id=#{user.id}" title="Unfriend"
-                        i.fa.fa-user-times
-                    - else
-                      a#twitter.button href="/add_friend?new_friend_id=#{user.id}" title="Add friend"
-                        i.fa.fa-user-plus
-                  li
-                    - if current_user.has_blocked_user(user)
-                      a#dribbble.button href="/unblock?blocked_user_id=#{user.id}" title="Unblock"
-                        i.fa.fa-check
-                    - else
-                      a#dribbble.button href="/block_user?blocked_user_id=#{user.id}" title="Block user"
-                        i.fa.fa-ban
-  br
+.content-wrapper
+  .col-sm-6
+    h1 style=("color: white") List of Users
+  .col-sm-6
+    .wrapper
+      #button
+        - select_type = case @type
+        -               when 'friend' then 'Friends List'
+        -               when 'block' then 'Blocked Users'
+        -               else 'All Users'
+        p = select_type
+      #dropdown
+        ul#content
+          li
+            = link_to "All User", society_path(type: 'all')
+          li
+            = link_to "Friends List", society_path(type: 'friend')
+          li
+            = link_to "Blocked Users", society_path(type: 'block')
+  #about.page-section
+    - @all_users.in_groups_of(3) do |group|
+      .row
+        - group.compact.each do |user|
+          .col-sm-4
+            .profile_card
+              .header style=("background: url(#{user.image_url})")
+              .profile
+                - icon_url = card_icon_url_based_on_2_users(current_user, user)
+                .avatar_image style=("background: url(#{icon_url}) no-repeat top right; background-size: 100%")
+                .inner_content
+                  h2#name.name = user.name
+                  span#desc
+                  p#desc_one.description = user.email
+                  .social_links
+                    ul
+                      li
+                        a.button href="http://lucasbonomi.com" title="Add friend"
+                          i.fa.fa-pencil
+                      li
+                        - if current_user.is_friend_with?(user)
+                          a#twitter.button href="/unfriend?friend_id=#{user.id}" title="Unfriend"
+                            i.fa.fa-user-times
+                        - else
+                          a#twitter.button href="/add_friend?new_friend_id=#{user.id}" title="Add friend"
+                            i.fa.fa-user-plus
+                      li
+                        - if current_user.has_blocked_user?(user)
+                          a#dribbble.button href="/unblock?blocked_user_id=#{user.id}" title="Unblock"
+                            i.fa.fa-check
+                        - else
+                          a#dribbble.button href="/block_user?blocked_user_id=#{user.id}" title="Block user"
+                            i.fa.fa-ban
+      br

@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title CoderChat
+    title Cheetah Chat
     meta content="IE=edge" http-equiv="X-UA-Compatible" /
     == stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -10,6 +10,7 @@ html
   body
     /! SIDEBAR
     .sidebar-menu.hidden-xs.hidden-sm
+      h1.app-title Cheetah Chat
       .top-section
         .profile-image
           img alt="Cheetah" src="#{current_user.image_url}"
@@ -37,7 +38,5 @@ html
     /! MAIN CONTENT
     .main-content
       .fluid-container
-        .content-wrapper
-          #about.page-section
-            = render partial: 'layouts/flash_messages', flash: flash
-            == yield
+        = render partial: 'layouts/flash_messages', flash: flash
+        == yield
