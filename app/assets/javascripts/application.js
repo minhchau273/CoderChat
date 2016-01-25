@@ -14,5 +14,20 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
+//= require plugins/momentjs/moment.min.js
+//= require plugins/momentjs/moment-timezone.js
 //= require_tree .
 
+(function() {
+  'use strict';
+
+  $(document).ready(function() {
+    // alert("sdgsfd")
+    var time_zone = moment.tz.guess();
+    $('.timestring').each(function() {
+      var parse_time = this.textContent.clone().tz(time_zone);
+      alert(time_zone);
+      this.textContent = parse_time.format('lll');
+    });
+  });
+})();
