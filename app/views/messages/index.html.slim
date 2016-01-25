@@ -4,19 +4,13 @@
   .col-sm-6
     h1 style=("color: white") Inbox
   #about.page-section
-    .account
-      img.avatar alt="avatar" src="http://www.croop.cl/UI/twitter/images/carl.jpg"
-      .msg-top
-        h2.msg-name 
-          | Jack Sparrow
-          span.msg-time 01/26/16 5:30pm
-        p.msg-content 
-          | Rails is a web-application framework that includes everything needed to create database-backed web applications according
-    .account
-      img.avatar alt="avatar" src="http://www.croop.cl/UI/twitter/images/carl.jpg"
-      .msg-top
-        h2.msg-name 
-          | Jack Sparrow
-          span.msg-time 01/26/16 5:30pm
-        p.msg-content 
-          | Rails is a web-application framework that includes everything needed to create database-backed web applications according
+    - @unread_messages.each do |message|
+      - sender = User.find(message.sender_id)
+      = link_to(new_message_path(recipient_id: sender.id))
+        .account
+          = image_tag("#{sender.image_url}", class: "avatar")
+          .msg-top
+            h2.msg-name 
+              = sender.name
+              span.msg-time.timestring = message.created_at
+            p.msg-content = message.message

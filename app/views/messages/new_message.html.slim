@@ -17,9 +17,15 @@
     .phone-containter
       #phone.phone
         - @messages.each do |message|
-          .message.left
-            .message-text = message.message
-          .message-time-left = message.created_at.try(:strftime, "%y/%m/%d %l:%M%p")
+          - if @sent_messages.include?(message)
+            .message.left
+              .message-text = message.message
+            .message-time-left.timestring = message.created_at
+          - else
+            .message.right
+              .message-text = message.message
+            .message-time-right.timestring = message.created_at
+            .empty
       .send-container
         = form_for(:message, url: send_message_path) do |f|
           = f.text_field :message, class: "send-input", placeholder: "Message", required: ""

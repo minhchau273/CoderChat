@@ -41,4 +41,12 @@ class User < ActiveRecord::Base
   def unread_messages_to_user(recipient_id)
     sent_messages.where(recipient_id: recipient_id, seen_at: nil)
   end
+
+  def unread_messages_from_user(sender_id)
+    received_messages.where(sender_id: sender_id, seen_at: nil)
+  end
+
+  def unread_messages
+    received_messages.where(seen_at: nil).order(created_at: :desc)
+  end
 end
