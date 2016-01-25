@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'send_message', to: 'messages#create'
   get 'new_message', to: 'messages#new_message'
 
   get 'block_user', to: 'block#create'

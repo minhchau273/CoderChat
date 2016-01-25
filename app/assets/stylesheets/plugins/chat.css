@@ -66,8 +66,10 @@ html, body {height: 98%; position: relative; margin: 0;}
   float: left;
 }
 .message-time-left {
-  margin-left: 20px;
+  margin-top: -10px;
+  margin-left: 25px;
   color: #455669;
+  font-size: 10px;
 }
 .message.right .message-text {
   margin-left: 70px;

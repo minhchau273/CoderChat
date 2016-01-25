@@ -5,29 +5,23 @@
   .col-sm-12  
     .wrapper
       #button
-        - select_type = case @type
-        -               when 'friend' then 'Friends List'
-        -               when 'block' then 'Blocked Users'
-        -               else 'All Users'
-        p = select_type
+        - recipient_name = @recipient.name || 'Choose friend'
+        p = recipient_name
       #dropdown
         ul#content
-          li
-            = link_to "All User", society_path(type: 'all')
-          li
-            = link_to "Friends List", society_path(type: 'friend')
-          li
-            = link_to "Blocked Users", society_path(type: 'block')
+          - @friends.each do |friend|
+            li
+              = link_to "#{friend.name}", new_message_path(recipient_id: friend.id)
   #about.page-section
     br
     .phone-containter
       #phone.phone
-        .message.left
-          .message-text
-            | Hello!
-        .message-time-left 
-            | 01/26/16 5:30 pm
+        - @messages.each do |message|
+          .message.left
+            .message-text = message.message
+          .message-time-left = message.created_at.try(:strftime, "%y/%m/%d %l:%M%p")
       .send-container
-        form#send
-          input#msgInput.send-input placeholder="Message" type="text" /
-          input.send-btn type="submit" value="Send" /
+        = form_for(:message, url: send_message_path) do |f|
+          = f.text_field :message, class: "send-input", placeholder: "Message", required: ""
+          input type='hidden' name='message[recipient_id]' value="#{@recipient.id}"
+          = f.submit "Send", class: "send-btn"

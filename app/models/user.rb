@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   has_many :blocks, class_name: 'Block', foreign_key: 'user_id'
   has_many :blocked_users, through: :blocks, source: :blocked_user
 
+  has_many :sent_messages, class_name: 'Message', foreign_key: 'sender_id', dependent: :destroy
+  has_many :received_messages, class_name: 'Message', foreign_key: 'recipient_id', dependent: :destroy
 
   IMAGE_BASE_URL = "http://loremflickr.com/240/240/"
 
@@ -34,5 +36,9 @@ class User < ActiveRecord::Base
 
   def has_blocked_user?(user)
     blocked_users.include?(user)
+  end
+
+  def unread_messages_to_user(recipient_id)
+    sent_messages.where(recipient_id: recipient_id, seen_at: nil)
   end
 end
