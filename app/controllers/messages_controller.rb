@@ -4,4 +4,8 @@ class MessagesController < ApplicationController
   def index
     
   end
+
+  def new_message
+
+  end
 end

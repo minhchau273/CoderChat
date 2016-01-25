@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'new_message', to: 'messages#new_message'
+
   get 'block_user', to: 'block#create'
   get 'unblock', to: 'block#destroy'
 

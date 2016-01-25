@@ -1,0 +1,33 @@
+== stylesheet_link_tag 'chat', media: 'all', 'data-turbolinks-track' => true
+.content-wrapper
+  .col-sm-6
+    h1 style=("color: white") New Message
+  .col-sm-12  
+    .wrapper
+      #button
+        - select_type = case @type
+        -               when 'friend' then 'Friends List'
+        -               when 'block' then 'Blocked Users'
+        -               else 'All Users'
+        p = select_type
+      #dropdown
+        ul#content
+          li
+            = link_to "All User", society_path(type: 'all')
+          li
+            = link_to "Friends List", society_path(type: 'friend')
+          li
+            = link_to "Blocked Users", society_path(type: 'block')
+  #about.page-section
+    br
+    .phone-containter
+      #phone.phone
+        .message.left
+          .message-text
+            | Hello!
+        .message-time-left 
+            | 01/26/16 5:30 pm
+      .send-container
+        form#send
+          input#msgInput.send-input placeholder="Message" type="text" /
+          input.send-btn type="submit" value="Send" /
