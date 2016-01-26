@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :require_login, only: [:index]
+  
   def index
     @type = params[:type] || 'all'
     @all_users = case @type

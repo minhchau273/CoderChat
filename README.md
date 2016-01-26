@@ -4,7 +4,7 @@
 
 Submitted by: **Chau Vo**
 
-Time spent: 17 hours
+Time spent: 20 hours
 
 URL: **Insert your Heroku URL here**
 
