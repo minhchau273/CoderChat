@@ -20,11 +20,11 @@
           - if @sent_messages.include?(message)
             .message.left
               .message-text = message.message
-            .message-time-left.timestring = message.created_at
+            .message-time-left.timestring = message.created_at.strftime("%I:%M%p %b %d, %Y")
           - else
             .message.right
               .message-text = message.message
-            .message-time-right.timestring = message.created_at
+            .message-time-right.timestring = message.created_at.strftime("%I:%M%p %b %d, %Y")
             .empty
       .send-container
         = form_for(:message, url: send_message_path) do |f|

@@ -12,5 +12,5 @@
           .msg-top
             h2.msg-name 
               = sender.name
-              span.msg-time.timestring = message.created_at
+              span.msg-time.timestring = message.created_at.strftime("%I:%M%p %b %d, %Y")
             p.msg-content = message.message
