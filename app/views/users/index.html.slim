@@ -34,9 +34,14 @@
                   p#desc_one.description = user.email
                   .social_links
                     ul
-                      li
-                        a.button href="http://lucasbonomi.com" title="Add friend"
-                          i.fa.fa-pencil
+                      - if current_user.is_friend_with?(user)
+                        li
+                          a.button href="/new_message?recipient_id=#{user.id}" title="Send message"
+                            i.fa.fa-pencil
+                      - else
+                        li
+                          a.button
+                            i.fa.fa-pencil
                       li
                         - if current_user.is_friend_with?(user)
                           a#twitter.button href="/unfriend?friend_id=#{user.id}" title="Unfriend"

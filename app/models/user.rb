@@ -43,10 +43,20 @@ class User < ActiveRecord::Base
   end
 
   def unread_messages_from_user(sender_id)
-    received_messages.where(sender_id: sender_id, seen_at: nil)
+    messages = received_messages.where(sender_id: sender_id, seen_at: nil).to_a
+    remove_blocked_messages(messages)
   end
 
   def unread_messages
-    received_messages.where(seen_at: nil).order(created_at: :desc)
+    messages = received_messages.where(seen_at: nil).order(created_at: :desc).to_a
+    remove_blocked_messages(messages)
+  end
+
+  private
+
+  def remove_blocked_messages(messages)
+    messages.delete_if do |message|
+      has_blocked_user?(message.sender)
+    end
   end
 end
