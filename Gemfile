@@ -45,7 +45,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'faker'
-  # gem 'factory_girl_rails', '~> 4.0'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :development do

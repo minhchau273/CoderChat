@@ -1,4 +1,4 @@
-require 'factory_girl_rails'
+# require 'factory_girl_rails'
 class WelcomeController < ApplicationController
   before_action :require_login
 
