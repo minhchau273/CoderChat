@@ -16,7 +16,10 @@ class MessagesController < ApplicationController
     @messages = @messages.sort_by(&:created_at)
 
     # Make received messages as read
-    @received_messages.each { |message| message.seen_at = Time.current }
+    @received_messages.each do |message|
+      message.seen_at = Time.current
+      message.save
+    end
   end
 
   def create
