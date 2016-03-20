@@ -6,7 +6,7 @@ Submitted by: **Chau Vo**
 
 Time spent: 20 hours
 
-URL: **Insert your Heroku URL here**
+URL: https://cheetah-chat.herokuapp.com/
 
 ## User Stories
 
